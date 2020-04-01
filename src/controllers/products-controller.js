@@ -6,7 +6,10 @@ const { validationResult } = require('express-validator');
 exports.listProducts = async (req, res) => {
   try {
     const data = await repository.listProducts();
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).send(data);
+
   } catch (e) {
     res.status(500).send({message: 'Falha ao carregar os produtos!'});
   }

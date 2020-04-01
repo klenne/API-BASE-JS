@@ -17,7 +17,6 @@ exports.createProduct = async data => {
 };
 
 exports.updateProduct = async (id, data) => {
-    console.log(data);
     await Products.findByIdAndUpdate(id, {
       $set: data
     });
